@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<title>Question</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    text-align:center;
+}
+
+h1{
+    color:#fff;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+}
+
+button{
+    border:none;
+    border-radius:15px;
+    padding:15px 35px;
+    font-size:24px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#yes{
+    background:#22c55e;
+    color:white;
+}
+
+#no{
+    background:#ef4444;
+    color:white;
+}
+
+#message{
+    display:none;
+    font-size:40px;
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1 id="question">Надаа хайртай юу? 💖</h1>
+
+    <div class="buttons">
+        <button id="yes">Тийм 💚</button>
+        <button id="no">Үгүй ❌</button>
+    </div>
+
+    <div id="message">
+        баярлалаа би мэднэ 💕
+    </div>
+</div>
+
+<script>
+let yesBtn = document.getElementById("yes");
+let noBtn = document.getElementById("no");
+let question = document.getElementById("question");
+let message = document.getElementById("message");
+
+let size = 24;
+
+noBtn.addEventListener("click", () => {
+    size += 15;
+
+    yesBtn.style.fontSize = size + "px";
+    yesBtn.style.padding =
+        (15 + size/2) + "px " +
+        (35 + size/2) + "px";
+
+    if(size > 90){
+        noBtn.style.display = "none";
+    }
+});
+
+yesBtn.addEventListener("click", () => {
+    question.style.display = "none";   // гарчиг алга болно
+    document.querySelector(".buttons").style.display = "none";
+    message.style.display = "block";
+});
+</script>
+
+</body>
+</html>
